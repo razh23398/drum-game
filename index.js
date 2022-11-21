@@ -15,15 +15,15 @@ var drumLength = document.querySelectorAll(".drum").length
 for (i = 0; i < drumLength; i++){
   document.querySelectorAll(".drum")[i].addEventListener("click", function(){
     makeSound(this.innerHTML);
-    changeColor(this.innerHTML);
+    changeColor(this.innerHTML)
   })
 }
 
 // keybord press
 document.addEventListener("keydown", function(event){
+  console.log(event.key);
   makeSound(event.key);
   changeColor(event.key);
-  
 })
 
 // make sound switch button func
@@ -33,7 +33,7 @@ function makeSound(key){
     case "w":
       carsh.play();
       break;
-
+      
     case "a":
       kickBass.play();
       break;
@@ -64,13 +64,10 @@ function makeSound(key){
 }
 
 
-var drumArray = ["w", "a", "s", "d", "j", "k", "l"]
 
 function changeColor(key){
-  if (drumArray.includes(key)){
     document.querySelector("." + key).classList.add("pressed")
     setTimeout(function(){
       document.querySelector("." + key).classList.remove("pressed")
     }, 100)
-  }  
-}
+  } 
