@@ -11,7 +11,6 @@ var tom4 = new Audio("sounds/tom-4.mp3");
 
 // click press
 var drumLength = document.querySelectorAll(".drum").length
-console.log(drumLength)
 
 for (i = 0; i < drumLength; i++){
   document.querySelectorAll(".drum")[i].addEventListener("click", function(){
@@ -28,7 +27,7 @@ document.addEventListener("keydown", function(event){
 })
 
 // make sound switch button func
-function makeSound(key) {
+function makeSound(key){
 
   switch (key) {
     case "w":
@@ -59,15 +58,19 @@ function makeSound(key) {
       tom4.play();
       break;
   
-    default: alert("this is not a valid button")
+    default: alert ("not a valid button")
       break;
   }
 }
 
-// change the color of the button when clicked
+
+var drumArray = ["w", "a", "s", "d", "j", "k", "l"]
+
 function changeColor(key){
-  document.querySelector("." + key).classList.add("pressed")
-  setTimeout(function() {
-    document.querySelector("." + key).classList.remove("pressed")
-  }, 100)
+  if (drumArray.includes(key)){
+    document.querySelector("." + key).classList.add("pressed")
+    setTimeout(function(){
+      document.querySelector("." + key).classList.remove("pressed")
+    }, 100)
+  }  
 }
